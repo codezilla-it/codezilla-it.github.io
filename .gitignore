@@ -7,7 +7,6 @@
 *.rar
 *.log
 *.zip
-static
 media_*
 celerybeat-schedule
 celerybeat.pid
