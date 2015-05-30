@@ -9,7 +9,8 @@ html, body {
     margin: 0px;
 }
 body{
-	background-color: #323031;
+    background-color: #39393F;
+    background-image: -webkit-linear-gradient(top, #404047, #39393F);
 }
 
 .block {
