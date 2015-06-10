@@ -1,5 +1,5 @@
-!.gitignore
 .*
+!.gitignore
 .idea
 *.py[cod]
 *.eml
@@ -7,8 +7,7 @@
 *.rar
 *.log
 *.zip
-static
-media_*
+media
 celerybeat-schedule
 celerybeat.pid
 node_modules
@@ -17,3 +16,6 @@ _dist
 *.rdb
 Thumbs.db
 vendor
+/static
+Thumbs.db
+.DS_STORE
