@@ -7,12 +7,14 @@
 *.rar
 *.log
 *.zip
-media_*
+media
 celerybeat-schedule
 celerybeat.pid
 node_modules
 bower_components
 _dist
 *.rdb
-Thumbs.db
 vendor
+/static
+Thumbs.db
+.DS_STORE
