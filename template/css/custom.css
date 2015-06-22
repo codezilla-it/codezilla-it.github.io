@@ -72,3 +72,12 @@ nav.transparent .module.widget-handle {
     background-color: rgba(2, 2, 11, 0.8);
     opacity: 0.9;
 }
+
+.btn.btn--green{
+    color: #28BA00;
+    border-color: #28BA00;
+}
+.btn.btn--green:hover{
+    background-color: #28BA00;
+    color: #fff;
+}
