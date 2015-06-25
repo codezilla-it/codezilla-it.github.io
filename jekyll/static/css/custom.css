@@ -81,3 +81,7 @@ nav.transparent .module.widget-handle {
     background-color: #28BA00;
     color: #fff;
 }
+
+nav.transparent.fixed .nav-bar{
+    border-bottom-color: #ddd;
+}
