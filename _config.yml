@@ -2,6 +2,11 @@
 title: codezilla.it
 email: hey@codezilla.it
 url: "http://www.codezilla.it" # the base hostname & protocol for your site
-
+description: > # this means to ignore newlines until "baseurl:"
+  Codezilla.it Site | Fabio Cencetti - Andrea Rabbaglietti
+github_username:  codezilla-it
 # Build settings
 markdown: kramdown
+sass_dir: "_sass"
+baseurl: "/jekyll/" # the subpath of your site, e.g. /blog/
+static_path: "jekyll/static"
