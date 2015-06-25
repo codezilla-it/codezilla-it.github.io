@@ -9,4 +9,4 @@ github_username:  codezilla-it
 markdown: kramdown
 sass_dir: "_sass"
 baseurl: "" # the subpath of your site, e.g. /blog/
-static_path: "static"
+static_path: "jekyll/static"
