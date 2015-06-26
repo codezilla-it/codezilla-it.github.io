@@ -665,19 +665,8 @@ function updateNav() {
     var scrollY = mr_scrollTop;
 
     if (scrollY <= 0) {
-        if (mr_navFixed) {
-            mr_navFixed = false;
-            mr_nav.removeClass('fixed');
-        }
-        if (mr_outOfSight) {
-            mr_outOfSight = false;
-            mr_nav.removeClass('outOfSight');
-        }
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-        return;
+        mr_navFixed = false;
+        mr_nav.removeClass('scrolled fixed');
     }
 
     else{
