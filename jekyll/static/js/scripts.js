@@ -259,23 +259,33 @@ $(document).ready(function() {
 
     // Image Sliders
 
-    $('.slider-all-controls').flexslider({});
+    $('.slider-all-controls').flexslider({
+        easing: true,
+        initDelay: 0,
+        animationSpeed: 0,
+        touch: true
+    });
+
     $('.slider-paging-controls').flexslider({
         animation: "slide",
         directionNav: false
     });
+
     $('.slider-arrow-controls').flexslider({
         controlNav: false
     });
+
     $('.slider-thumb-controls .slides li').each(function() {
         var imgSrc = $(this).find('img').attr('src');
         $(this).attr('data-thumb', imgSrc);
     });
+
     $('.slider-thumb-controls').flexslider({
         animation: "slide",
         controlNav: "thumbnails",
         directionNav: true
     });
+
     $('.logo-carousel').flexslider({
         minItems: 1,
         maxItems: 4,
