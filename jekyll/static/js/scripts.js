@@ -680,49 +680,9 @@ function updateNav() {
         return;
     }
 
-    if (scrollY > mr_firstSectionHeight) {
-
-        console.log(mr_navScrolled);
-
-        if (!mr_navScrolled) {
-            mr_nav.addClass('scrolled');
-            mr_navScrolled = true;
-            return;
-        }
-    } else {
-        if (scrollY > mr_navOuterHeight) {
-            if (!mr_navFixed) {
-                mr_nav.addClass('fixed');
-                mr_navFixed = true;
-            }
-
-            if (scrollY > mr_navOuterHeight * 2) {
-                if (!mr_outOfSight) {
-                    mr_nav.addClass('outOfSight');
-                    mr_outOfSight = true;
-                }
-            } else {
-                if (mr_outOfSight) {
-                    mr_outOfSight = false;
-                    mr_nav.removeClass('outOfSight');
-                }
-            }
-        } else {
-            if (mr_navFixed) {
-                mr_navFixed = false;
-                mr_nav.removeClass('fixed');
-            }
-            if (mr_outOfSight) {
-                mr_outOfSight = false;
-                mr_nav.removeClass('outOfSight');
-            }
-        }
-
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-
+    else{
+        mr_navFixed = true;
+        mr_nav.addClass('scrolled fixed');
     }
 }
 
