@@ -681,6 +681,9 @@ function updateNav() {
     }
 
     if (scrollY > mr_firstSectionHeight) {
+
+        console.log(mr_navScrolled);
+
         if (!mr_navScrolled) {
             mr_nav.addClass('scrolled');
             mr_navScrolled = true;

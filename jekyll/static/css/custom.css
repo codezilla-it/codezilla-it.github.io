@@ -89,6 +89,10 @@ nav.transparent.fixed .nav-bar {
 
 @media (max-width: 990px) {
 
+    nav.fixed{
+        position: fixed !important;
+    }
+
     nav.transparent .nav-bar.nav-open {
       background-color: #252627;
     }
