@@ -668,7 +668,7 @@ function updateNav() {
     if (scrollY <= 0) {
         mr_navFixed = false;
         mr_nav.removeClass('scrolled fixed');
-        
+
         $('.logo-dark').hide();
         $('.logo-light').show();
     }
