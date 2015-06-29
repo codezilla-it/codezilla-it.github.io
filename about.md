@@ -1,5 +1,5 @@
 ---
-layout: full_width
+layout: base
 title: About
 permalink: /about/
 ---
