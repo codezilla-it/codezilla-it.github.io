@@ -119,7 +119,7 @@ hr {
 }
 
 .bg-primary .list-inline i {
-  color: lighten(@color-primary, 20%);
+  color: lighten($color-primary, 20%);
 }
 
 .overflow-hidden {
@@ -133,7 +133,7 @@ hr {
 .show-grid {
   border: 1px dashed rgba(255, 255, 255, 0);
   padding: 8px;
-  .transition(0.2s);
+  @include transition(0.2s);
   cursor: default;
 }
 
@@ -195,36 +195,36 @@ hr {
 
 /*!---------- 2. MIXINS ----------*/
 
-.transition(@time) {
-  transition: all @time ease;
-  -webkit-transition: all @time ease;
-  -moz-transition: all @time ease;
+@mixin transition($time) {
+  transition: all $time ease;
+  -webkit-transition: all $time ease;
+  -moz-transition: all $time ease;
 }
 
-.transition-property(@property,@time) {
-  transition: @property @time ease;
-  -webkit-transition: @property @time ease;
-  -moz-transition: @property @time ease;
+@mixin transition-property($property,$time) {
+  transition: $property $time ease;
+  -webkit-transition: $property $time ease;
+  -moz-transition: $property $time ease;
 }
 
-.transition-property-delay(@property,@time,@delay) {
-  transition: @property @time ease;
-  -webkit-transition: @property @time ease;
-  -moz-transition: @property @time ease;
-  transition-delay: @delay;
-  -webkit-transition: @delay;
+@mixin transition-property-delay($property,$time,$delay) {
+  transition: $property $time ease;
+  -webkit-transition: $property $time ease;
+  -moz-transition: $property $time ease;
+  transition-delay: $delay;
+  -webkit-transition: $delay;
 }
 
-.translateX(@amount) {
-  transform: translate3d(@amount, 0, 0);
-  -webkit-transform: translate3d(@amount, 0, 0);
-  -moz-transform: translate3d(@amount, 0, 0);
+@mixin translateX($amount) {
+  transform: translate3d($amount, 0, 0);
+  -webkit-transform: translate3d($amount, 0, 0);
+  -moz-transform: translate3d($amount, 0, 0);
 }
 
-.translateY(@amount) {
-  transform: translate3d(0,@amount, 0);
-  -webkit-transform: translate3d(0,@amount, 0);
-  -moz-transform: translate3d(0,@amount, 0);
+@mixin translateY($amount) {
+  transform: translate3d(0, $amount, 0);
+  -webkit-transform: translate3d(0, $amount, 0);
+  -moz-transform: translate3d(0, $amount, 0);
 }
 
 .v-align-children {
@@ -240,9 +240,9 @@ hr {
   -webkit-flex-direction: row;
 }
 
-.scale(@amount) {
-  transform: scale(@amount);
-  -webkit-transform: scale(@amount);
+@mixin scale($amount) {
+  transform: scale($amount);
+  -webkit-transform: scale($amount);
 }
 
 .v-align-children-column {
@@ -299,27 +299,27 @@ hr {
   z-index: 2;
 }
 
-.overlay-params(@opacity,@color) {
+@mixin overlay-params($opacity,$color) {
   position: absolute;
   content: '';
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background: @color;
-  opacity: @opacity;
+  background: $color;
+  opacity: $opacity;
   z-index: 2;
 }
 
-.heading-colors(@color) {
+@mixin heading-colors($color) {
   h1, h2, h3, h4, h5, h6 {
-    color: @color;
+    color: $color;
   }
 }
 
-.text-colors(@color) {
+@mixin text-colors($color) {
   p, span, li {
-    color: @color;
+    color: $color;
   }
 }
 
@@ -331,7 +331,7 @@ hr {
   }
 }
 
-@heading-font: "Raleway";
+$heading-font: "Raleway";
 .bold {
   font-weight: 600 !important;
 }
@@ -353,12 +353,12 @@ h1, h2, h3, h4, h5, h6, p, ul, ol, pre, table, blockquote, input, select, textar
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 h1, .h1 {
@@ -477,9 +477,9 @@ h6.uppercase, .h6-u {
 }
 
 .bold-h6 {
-  .h6;
-  .uppercase;
-  .h6-u;
+  @include h6;
+  @include uppercase;
+  @include h6-u;
 }
 
 p, span {
@@ -514,8 +514,8 @@ a, a:visited, a:focus, a:active, a:hover {
 
 a {
   font-weight: 600;
-  color: @color-primary;
-  .transition(0.3s);
+  color: $color-primary;
+  @include transition(0.3s);
   cursor: pointer;
 }
 
@@ -529,24 +529,24 @@ a {
 }
 
 .bg-light a {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .bg-light a:hover {
-  color: @color-primary;
+  color: $color-primary;
   opacity: 1;
 }
 
 a:hover {
-  color: darken(@color-primary, 10%);
+  color: darken($color-primary, 10%);
   text-decoration: none;
 }
 
 .label {
   text-transform: uppercase;
-  .bold-h6;
+  @include bold-h6;
   letter-spacing: 1px;
-  background: @color-primary;
+  background: $color-primary;
   border-radius: 0;
   padding: 6px 12px;
   font-size: 10px;
@@ -567,7 +567,7 @@ blockquote {
 
 .bg-secondary blockquote {
   background: #fff;
-  border-color: @color-primary;
+  border-color: $color-primary;
 }
 
 blockquote .author {
@@ -604,30 +604,30 @@ blockquote .author {
 
 /*!---------- 4. COLOURS ----------*/
 
-@green: #31B81F;
-@red: #e31d3b;
-@red2: #fc4f4f;
-@hyperblu: #3b3be8;
-@gunmetal: #333347;
-@trunavy: #282a38;
-@purple: #9037ff;
-@trublu: #60c5a7;
-@adventure: #91A05C;
-@resume: #13181D;
+$green: #31B81F;
+$red: #e31d3b;
+$red2: #fc4f4f;
+$hyperblu: #3b3be8;
+$gunmetal: #333347;
+$trunavy: #282a38;
+$purple: #9037ff;
+$trublu: #60c5a7;
+$adventure: #91A05C;
+$resume: #13181D;
 
-@color-primary: @green;
-@bg-secondary: #f8f8f8;
-@bg-dark: #292929;
+$color-primary: $green;
+$bg-secondary: #f8f8f8;
+$bg-dark: #292929;
 .bg-primary {
-  background: @color-primary !important;
+  background: $color-primary !important;
 }
 
 .bg-secondary {
-  background: @bg-secondary;
+  background: $bg-secondary;
 }
 
 .bg-dark {
-  background: @bg-dark;
+  background: $bg-dark;
 }
 
 .color-body {
@@ -635,11 +635,11 @@ blockquote .author {
 }
 
 .color-primary {
-  color: @color-primary !important;
+  color: $color-primary !important;
 }
 
 .color-red {
-  color: @red !important;
+  color: $red !important;
 }
 
 /*!---------- 5. SECTIONS ----------*/
@@ -659,8 +659,8 @@ footer {
 }
 
 .bg-dark, nav.bg-dark, footer.bg-dark, .bg-primary {
-  .heading-colors(#fff);
-  .text-colors(#fefefe);
+  @include heading-colors(#fff);
+  @include text-colors(#fefefe);
 }
 
 @media all and (max-width: 767px) {
@@ -670,7 +670,7 @@ footer {
 }
 
 .overlay:before {
-  .overlay-params(.3, @bg-dark);
+  @include overlay-params(.3, $bg-dark);
 }
 
 .overlay-heavy:before {
@@ -678,12 +678,12 @@ footer {
 }
 
 .bg-light.overlay:before {
-  .overlay-params(.1, #fff);
+  @include overlay-params(.1, #fff);
 }
 
 .image-bg {
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
 }
 
 .image-bg .container {
@@ -703,10 +703,10 @@ footer {
   top: 0;
   left: 0;
   z-index: 1;
-  background: @bg-dark;
+  background: $bg-dark;
   background-size: cover !important;
   background-position: 50% 50% !important;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 0;
 }
 
@@ -715,7 +715,7 @@ footer {
 }
 
 .background-multiply .background-image-holder {
-  background-color: @color-primary !important;
+  background-color: $color-primary !important;
   background-blend-mode: multiply;
 }
 
@@ -748,8 +748,8 @@ footer {
 /*!---------- 6. BUTTONS ----------*/
 
 .btn {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  border: 2px solid @color-primary;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 2px solid $color-primary;
   padding: 0 26px;
   height: 40px;
   min-width: 150px;
@@ -759,9 +759,9 @@ footer {
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 0;
-  color: @color-primary;
+  color: $color-primary;
   text-align: center;
-  .transition(0.3s);
+  @include transition(0.3s);
   margin-right: 8px;
   margin-bottom: 24px;
 }
@@ -771,7 +771,7 @@ footer {
 }
 
 .btn:hover {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -815,7 +815,7 @@ footer {
 }
 
 .btn-filled {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -830,7 +830,7 @@ footer {
 }
 
 .image-bg .btn.btn-filled, .image-bg .btn-filled:visited {
-  border-color: @color-primary;
+  border-color: $color-primary;
 }
 
 .image-bg .btn-filled:hover {
@@ -855,7 +855,7 @@ body.btn-rounded .btn {
 }
 
 .btn:visited {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .btn-white:visited, .btn:visited:hover {
@@ -872,17 +872,17 @@ body.btn-rounded .btn {
 
 .btn.bg-dark {
   color: #fff;
-  border-color: @bg-dark;
+  border-color: $bg-dark;
 }
 
 .btn.bg-dark:hover {
-  background: lighten(@bg-dark, 10%);
+  background: lighten($bg-dark, 10%);
 }
 
 /*!---------- 7. NAVIGATION ----------*/
 
-@nav-height: 55px;
-@nav-line-height: 53px;
+$nav-height: 55px;
+$nav-line-height: 53px;
 
 .nav-container {
   -webkit-backface-visibility: hidden;
@@ -934,19 +934,19 @@ nav .btn, .nav-bar .btn {
 }
 
 .nav-bar {
-  height: @nav-height;
-  max-height: @nav-height;
-  line-height: @nav-line-height;
+  height: $nav-height;
+  max-height: $nav-height;
+  line-height: $nav-line-height;
   border-bottom: 1px solid #ccc;
 }
 
 .nav-bar .module, .nav-bar .module-group {
-  height: @nav-height;
+  height: $nav-height;
 }
 
 .nav-bar a {
   display: inline-block;
-  height: @nav-height;
+  height: $nav-height;
 }
 
 .logo {
@@ -985,8 +985,8 @@ nav.bg-dark .logo-dark {
 
 .menu {
   width: 100%;
-  height: @nav-height;
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: $nav-height;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .menu.inline-block {
@@ -998,9 +998,9 @@ nav.bg-dark .logo-dark {
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 1px;
-  color: @bg-dark;
+  color: $bg-dark;
   opacity: 0.5;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .menu li a:hover {
@@ -1011,7 +1011,7 @@ nav.bg-dark .logo-dark {
   margin-right: 32px;
   float: left;
   position: relative;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
 }
 
@@ -1031,12 +1031,12 @@ nav.bg-dark .logo-dark {
 .menu > li ul {
   width: 200px;
   padding: 8px 0;
-  background: @bg-dark;
+  background: $bg-dark;
   position: absolute;
   z-index: 99;
   opacity: 0;
-  .transition(0.3s);
-  .translateY(10px);
+  @include transition(0.3s);
+  @include translateY(10px);
   visibility: hidden;
   margin-top: -1px;
 }
@@ -1073,13 +1073,13 @@ nav.bg-dark .logo-dark {
 
 .menu > li:hover > ul {
   opacity: 1;
-  .translateY(0px);
+  @include translateY(0px);
   visibility: visible;
 }
 
 .menu > li > ul > li:hover > ul, .has-dropdown:hover .mega-menu ul {
   opacity: 1;
-  .translateY(0px);
+  @include translateY(0px);
   visibility: visible;
 }
 
@@ -1120,7 +1120,7 @@ nav.bg-dark .logo-dark {
   padding: 0 24px;
   cursor: pointer;
   position: relative;
-  .disable-select;
+  @include disable-select;
   margin: 0;
 }
 
@@ -1132,9 +1132,9 @@ nav.bg-dark .logo-dark {
 
 .module.widget-handle i {
   font-size: 20px;
-  line-height: @nav-line-height;
+  line-height: $nav-line-height;
   opacity: 0.5;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .module.widget-handle:hover i, .module.active i {
@@ -1142,15 +1142,15 @@ nav.bg-dark .logo-dark {
 }
 
 .widget-handle .function {
-  .cast-shadow;
+  @include cast-shadow;
   cursor: default;
   width: 200px;
-  background: @bg-dark;
+  background: $bg-dark;
   position: absolute;
   z-index: 99;
   opacity: 0;
-  .transition(0.3s);
-  .translateY(10px);
+  @include transition(0.3s);
+  @include translateY(10px);
   visibility: hidden;
   margin-top: -2px;
   right: 0;
@@ -1158,19 +1158,19 @@ nav.bg-dark .logo-dark {
 
 .module.widget-handle:hover .function {
   opacity: 1;
-  .translateY(0px);
+  @include translateY(0px);
   visibility: visible;
 }
 
 .module.widget-handle .title {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
   display: none;
   opacity: .5;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .module.widget-handle .title:hover {
@@ -1189,7 +1189,7 @@ nav.bg-dark .logo-dark {
   padding: 0;
   text-align: center;
   position: absolute;
-  background: @color-primary;
+  background: $color-primary;
   top: 10px;
   right: -10px;
   border-radius: 50%;
@@ -1273,8 +1273,8 @@ nav .cart-overview a {
   }
 
   nav.outOfSight {
-    .translateY(0px) !important;
-    .transition(0.3s);
+    @include translateY(0px) !important;
+    @include transition(0.3s);
   }
 
   .nav-bar, .nav-bar .module-group, .nav-bar .module {
@@ -1324,7 +1324,7 @@ nav .cart-overview a {
     width: 100%;
     opacity: 1;
     visibility: visible;
-    .translateY(0px);
+    @include translateY(0px);
     left: 0;
   }
 
@@ -1333,7 +1333,7 @@ nav .cart-overview a {
     opacity: 1;
     visibility: visible;
     display: none;
-    .translateY(0px);
+    @include translateY(0px);
   }
 
   .menu > li > ul > .has-dropdown:after {
@@ -1400,7 +1400,7 @@ nav .cart-overview a {
     width: 100%;
     position: relative;
     opacity: 1;
-    .translateY(0px);
+    @include translateY(0px);
     visibility: visible;
     margin-top: 0;
     display: none;
@@ -1448,12 +1448,12 @@ nav .cart-overview a {
 }
 
 nav.outOfSight {
-  .translateY(-200px);
-  .transition(0.3s);
+  @include translateY(-200px);
+  @include transition(0.3s);
 }
 
 nav.scrolled {
-  .translateY(0px);
+  @include translateY(0px);
 }
 
 nav.fixed, nav.absolute {
@@ -1521,7 +1521,7 @@ nav.transparent .logo-light {
   }
 
   nav.transparent .nav-open .menu > li > a, nav.transparent .nav-open .module.widget-handle i, nav.transparent .nav-open .nav-utility {
-    color: @bg-dark;
+    color: $bg-dark;
   }
 
   nav.transparent .nav-open .logo-dark {
@@ -1533,7 +1533,7 @@ nav.transparent .logo-light {
   }
 
   nav.transparent .nav-open .has-dropdown:after {
-    color: @bg-dark;
+    color: $bg-dark;
   }
 
   .menu > li:last-child > ul ul {
@@ -1554,12 +1554,12 @@ nav.transparent.fixed .logo-dark {
 }
 
 nav.transparent.fixed .menu > li > a, nav.transparent.fixed .module.widget-handle i {
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 nav.transparent.fixed .menu > .has-dropdown:after {
   color: #fff;
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 nav.transparent.fixed .module.widget-handle {
@@ -1610,7 +1610,7 @@ nav.bg-dark .nav-utility, nav.bg-dark .nav-bar {
   font-size: 24px;
   top: -2px;
   right: -4px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .alert .close span {
@@ -1637,11 +1637,11 @@ nav.bg-dark .nav-utility, nav.bg-dark .nav-bar {
 .icon {
   font-size: 64px;
   display: inline-block;
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 .image-bg.bg-light .icon {
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 .image-bg .icon, .bg-dark .icon {
@@ -1673,8 +1673,8 @@ nav.bg-dark .nav-utility, nav.bg-dark .nav-bar {
 .embelish-icons {
   position: absolute;
   top: 50%;
-  .translateY(-50%);
-  .scale(10);
+  @include translateY(-50%);
+  @include scale(10);
   left: 50%;
   opacity: 0.05;
   z-index: -1;
@@ -1683,7 +1683,7 @@ nav.bg-dark .nav-utility, nav.bg-dark .nav-bar {
 /*!---------- 11. FORMS ----------*/
 
 input, select, textarea {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 input[type="text"], textarea, select, input[type="password"] {
@@ -1705,10 +1705,10 @@ input[type="text"], textarea, select, input[type="password"] {
 }
 
 .input-with-label span {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 11px;
   text-transform: uppercase;
-  color: @bg-dark;
+  color: $bg-dark;
   letter-spacing: 1px;
   font-weight: 700;
   display: block;
@@ -1731,7 +1731,7 @@ input[type="text"], input[type="password"] {
 }
 
 .image-bg.bg-light input.transparent {
-  border-color: @bg-dark;
+  border-color: $bg-dark;
 }
 
 input.transparent {
@@ -1812,8 +1812,8 @@ input.transparent:-ms-input-placeholder {
 input[type="submit"] {
   height: 50px;
   line-height: 48px;
-  border: 2px solid @color-primary;
-  background: @color-primary;
+  border: 2px solid $color-primary;
+  background: $color-primary;
   color: #fff;
   width: 100%;
   font-size: 11px;
@@ -1825,7 +1825,7 @@ input[type="submit"] {
 
 .bg-primary input[type="submit"] {
   background: #fff;
-  color: @color-primary;
+  color: $color-primary;
 }
 
 input[type="submit"]:focus {
@@ -1834,13 +1834,13 @@ input[type="submit"]:focus {
 
 input[type="submit"].hollow {
   background: none;
-  border: 2px solid @color-primary;
-  color: @color-primary;
-  .transition(0.3s);
+  border: 2px solid $color-primary;
+  color: $color-primary;
+  @include transition(0.3s);
 }
 
 input[type="submit"].hollow:hover {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -1859,7 +1859,7 @@ input[type="submit"].hollow:hover {
   top: 14px;
   z-index: 2;
   pointer-events: none;
-  .transition(0.3s);
+  @include transition(0.3s);
   cursor: pointer;
 }
 
@@ -1885,7 +1885,7 @@ select {
   font-weight: bold;
   letter-spacing: 1px;
   color: #777;
-  .transition(0.3s);
+  @include transition(0.3s);
   cursor: pointer;
 }
 
@@ -1903,9 +1903,9 @@ select:active, select:focus, select:hover {
   width: 50px;
   height: 25px;
   border-radius: 25px;
-  border: 1px solid @color-primary;
+  border: 1px solid $color-primary;
   cursor: pointer;
-  .disable-select;
+  @include disable-select;
   margin-bottom: 24px;
 }
 
@@ -1914,17 +1914,17 @@ select:active, select:focus, select:hover {
   height: 19px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0);
-  border: 1px solid @color-primary;
+  border: 1px solid $color-primary;
   position: relative;
   top: 2px;
   left: 2px;
   display: inline-block;
-  .transition(0.2s);
+  @include transition(0.2s);
 }
 
 .checkbox-option.checked .inner {
-  .translateX(25px);
-  background: @color-primary;
+  @include translateX(25px);
+  background: $color-primary;
 }
 
 .checkbox-option input {
@@ -1956,7 +1956,7 @@ select:active, select:focus, select:hover {
   width: 19px;
   height: 19px;
   left: 2px;
-  .scale(0);
+  @include scale(0);
 }
 
 .radio-option + span {
@@ -1965,11 +1965,11 @@ select:active, select:focus, select:hover {
 }
 
 .radio-option.checked .inner {
-  .scale(1);
+  @include scale(1);
 }
 
 .radio-option.checked .inner {
-  background: @color-primary;
+  background: $color-primary;
 }
 
 form.thirds input {
@@ -2022,33 +2022,33 @@ form iframe.mail-list-form {
   z-index: 99999;
 }
 
-@keyframes pulsate {
-  0% {
-    transform: scale(.1);
-    opacity: 0.0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
+$keyframespulsate {
+            0% {
+              transform: scale(.1);
+              opacity: 0.0;
+            }
+            50% {
+              opacity: 1;
+            }
+            100% {
+              transform: scale(1.2);
+              opacity: 0;
+            }
+          }
 
-@-webkit-keyframes pulsate {
-  0% {
-    transform: scale(.1);
-    opacity: 0.0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-  }
-}
+$-webkit-keyframespulsate {
+                    0% {
+                      transform: scale(.1);
+                      opacity: 0.0;
+                    }
+                    50% {
+                      opacity: 1;
+                    }
+                    100% {
+                      transform: scale(1.2);
+                      opacity: 0;
+                    }
+                  }
 
 @media all and (max-width: 767px) {
   form.thirds input, form.halves input {
@@ -2061,13 +2061,13 @@ form iframe.mail-list-form {
 
 .accordion .title {
   cursor: pointer;
-  .disable-select;
+  @include disable-select;
 }
 
 .accordion .content {
   max-height: 0;
   overflow: hidden;
-  .transition(0.4s);
+  @include transition(0.4s);
 }
 
 .accordion li.active .content {
@@ -2089,30 +2089,30 @@ form iframe.mail-list-form {
 .accordion-1 .title {
   background: #f5f5f5;
   padding: 13px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .bg-secondary .accordion-1 .title {
-  background: darken(@bg-secondary, 5%);
+  background: darken($bg-secondary, 5%);
 }
 
 .bg-secondary .accordion-1 .title:hover {
-  background: darken(@bg-secondary, 8%);
+  background: darken($bg-secondary, 8%);
 }
 
 .accordion-1 .title span {
-  .bold-h6;
+  @include bold-h6;
 }
 
 .accordion-1 .active .title {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
 .accordion-1 .content {
   border: 1px solid #eee;
   border-top: none;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 0;
 }
 
@@ -2122,7 +2122,7 @@ form iframe.mail-list-form {
 
 .accordion-1 .active .content {
   opacity: 1;
-  .translateY(0px);
+  @include translateY(0px);
 }
 
 .accordion-1 .title:hover {
@@ -2130,7 +2130,7 @@ form iframe.mail-list-form {
 }
 
 .accordion-1 .active .title:hover {
-  background: @color-primary;
+  background: $color-primary;
 }
 
 .accordion-2 .title {
@@ -2138,7 +2138,7 @@ form iframe.mail-list-form {
   font-weight: 500;
   padding: 16px 0;
   border-bottom: 1px solid #ccc;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .7;
 }
 
@@ -2202,8 +2202,8 @@ form iframe.mail-list-form {
   text-align: center;
   min-width: 150px;
   background: #f5f5f5;
-  .disable-select;
-  .transition(0.3s);
+  @include disable-select;
+  @include transition(0.3s);
 }
 
 .bg-secondary .button-tabs .tab-title {
@@ -2211,11 +2211,11 @@ form iframe.mail-list-form {
 }
 
 .button-tabs .tab-title span {
-  .bold-h6;
+  @include bold-h6;
 }
 
 .button-tabs .active .tab-title {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -2224,7 +2224,7 @@ form iframe.mail-list-form {
 }
 
 .button-tabs .active .tab-title:hover {
-  background: @color-primary;
+  background: $color-primary;
 }
 
 .button-tabs.vertical {
@@ -2270,7 +2270,7 @@ form iframe.mail-list-form {
 .tabbed-content .content > li {
   opacity: 0;
   visibility: hidden;
-  .transition(0.3s);
+  @include transition(0.3s);
   display: none;
 }
 
@@ -2291,15 +2291,15 @@ form iframe.mail-list-form {
 }
 
 .text-tabs .tab-title {
-  .disable-select;
-  .transition(0.3s);
+  @include disable-select;
+  @include transition(0.3s);
   padding: 0 24px;
   opacity: 0.5;
   position: relative;
 }
 
 .text-tabs .tab-title span {
-  .bold-h6;
+  @include bold-h6;
 }
 
 .text-tabs .tab-title:after {
@@ -2307,21 +2307,21 @@ form iframe.mail-list-form {
   position: absolute;
   width: 100%;
   height: 1px;
-  background: @color-primary;
+  background: $color-primary;
   bottom: 10px;
   opacity: 0;
-  .transition(0.3s);
+  @include transition(0.3s);
   bottom: -17px;
   left: 0;
 }
 
 .text-tabs .active .tab-title {
   opacity: 1;
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .bg-primary .text-tabs .tab-title:after {
-  background: lighten(@color-primary, 30%);
+  background: lighten($color-primary, 30%);
 }
 
 .text-tabs .active .tab-title:after {
@@ -2359,7 +2359,7 @@ form iframe.mail-list-form {
 
 .icon-tabs .tab-title {
   text-align: center;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .5;
 }
 
@@ -2368,12 +2368,12 @@ form iframe.mail-list-form {
 }
 
 .icon-tabs .active .tab-title {
-  color: @color-primary;
+  color: $color-primary;
   opacity: 1;
 }
 
 .icon-tabs .active .tab-title i {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .image-bg .icon-tabs .active .tab-title i {
@@ -2386,7 +2386,7 @@ form iframe.mail-list-form {
 }
 
 .icon-tabs .tab-title span {
-  .bold-h6;
+  @include bold-h6;
 }
 
 @media all and (max-width: 767px) {
@@ -2413,12 +2413,12 @@ form iframe.mail-list-form {
 }
 
 .progress-bar {
-  background: @color-primary;
+  background: $color-primary;
   box-shadow: none !important;
 }
 
 .bg-primary .progress-bar {
-  background: lighten(@color-primary, 8%);
+  background: lighten($color-primary, 8%);
 }
 
 .progress-1 {
@@ -2440,7 +2440,7 @@ form iframe.mail-list-form {
 }
 
 .progress-1 .progress-bar span {
-  .bold-h6;
+  @include bold-h6;
   font-size: 11px;
 }
 
@@ -2452,7 +2452,7 @@ form iframe.mail-list-form {
 }
 
 .progress-2 span {
-  .bold-h6;
+  @include bold-h6;
   display: inline-block;
   margin-bottom: 8px;
 }
@@ -2461,11 +2461,11 @@ form iframe.mail-list-form {
   height: 16px;
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid @color-primary;
+  border: 1px solid $color-primary;
 }
 
 .bg-primary .progress-2 .bar-holder {
-  border-color: lighten(@color-primary, 12%);
+  border-color: lighten($color-primary, 12%);
 }
 
 /*!---------- 15. STATS ----------*/
@@ -2497,7 +2497,7 @@ form iframe.mail-list-form {
 }
 
 .breadcrumb-2 li a, .breadcrumb-2 li {
-  .bold-h6;
+  @include bold-h6;
   font-size: 11px;
   font-weight: 600;
 }
@@ -2549,7 +2549,7 @@ form iframe.mail-list-form {
 }
 
 .pagination li {
-  .number;
+  @include number;
 }
 
 .pagination li a {
@@ -2559,29 +2559,29 @@ form iframe.mail-list-form {
   text-align: center;
   padding-top: 6px;
   margin: 0 4px;
-  color: @bg-dark;
+  color: $bg-dark;
   font-weight: 400;
 }
 
 .pagination li a:hover, .pagination li.active a, .pagination li.active:hover a {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
-  border-color: @color-primary;
+  border-color: $color-primary;
 }
 
 /*!---------- 18. ICON FEATURES ----------*/
 
 .feature.boxed {
   padding: 32px;
-  background: @bg-secondary;
+  background: $bg-secondary;
 }
 
 .feature.boxed.bg-dark {
-  background: @bg-dark;
+  background: $bg-dark;
 }
 
 .bg-dark .feature.boxed {
-  background: lighten(@bg-dark, 5%);
+  background: lighten($bg-dark, 5%);
 }
 
 .feature.bordered {
@@ -2612,25 +2612,25 @@ form iframe.mail-list-form {
 .feature-1 i {
   display: inline-block;
   margin-bottom: 16px;
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .feature-2 i {
   display: block;
   width: 80px;
   height: 80px;
-  border: 1px solid @color-primary;
+  border: 1px solid $color-primary;
   text-align: center;
   line-height: 80px;
-  color: @color-primary;
+  color: $color-primary;
   border-radius: 50%;
   margin: 0 auto;
   margin-bottom: 24px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .feature-2 i:hover, .feature-2.filled i {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -2652,7 +2652,7 @@ form iframe.mail-list-form {
 }
 
 .feature-3 i {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .feature-4 .left {
@@ -2664,8 +2664,8 @@ form iframe.mail-list-form {
 }
 
 .feature-color {
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
 }
 
 .feature-color i {
@@ -2674,21 +2674,21 @@ form iframe.mail-list-form {
 }
 
 .feature-color:nth-of-type(1) {
-  background: @color-primary;
+  background: $color-primary;
 }
 
 .feature-color:nth-of-type(2) {
-  background: darken(@color-primary, 5%);
+  background: darken($color-primary, 5%);
 }
 
 .feature-color:nth-of-type(3) {
-  background: darken(@color-primary, 10%);
+  background: darken($color-primary, 10%);
 }
 
 .feature-5 {
   height: 33.333333vw;
   padding: 0 48px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 @media all and (max-width: 1280px) {
@@ -2723,8 +2723,8 @@ form iframe.mail-list-form {
 }
 
 .image-bg .feature {
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
 }
 
 .image-bg .feature.bordered {
@@ -2746,11 +2746,11 @@ form iframe.mail-list-form {
 }
 
 .pricing-table .price {
-  .number;
+  @include number;
   font-size: 80px;
   line-height: 80px;
   font-weight: 300;
-  color: @bg-dark;
+  color: $bg-dark;
   display: inline-block;
   margin-bottom: 16px;
 }
@@ -2764,11 +2764,11 @@ form iframe.mail-list-form {
 }
 
 .pricing-table.boxed, .pricing-table.emphasis {
-  background: @bg-secondary;
+  background: $bg-secondary;
 }
 
 .pricing-table.emphasis {
-  background: @color-primary;
+  background: $color-primary;
   color: #fff;
 }
 
@@ -2791,7 +2791,7 @@ form iframe.mail-list-form {
 }
 
 .page-title .container {
-  .v-align-transform;
+  @include v-align-transform;
 }
 
 .page-title i {
@@ -2826,8 +2826,8 @@ form iframe.mail-list-form {
 .nav-is-overlay.page-title-1.bg-dark:first-child,
 .nav-is-overlay .page-title-2.image-bg:first-child,
 .nav-is-overlay.page-title-2.bg-dark:first-child {
-  height: (@nav-height + 400);
-  padding-top: @nav-height;
+  height: ($nav-height + 400);
+  padding-top: $nav-height;
 }
 
 @media all and (max-width: 767px) {
@@ -2850,8 +2850,8 @@ form iframe.mail-list-form {
 .nav-is-overlay.page-title-3.bg-dark:first-child,
 .nav-is-overlay .page-title-4.image-bg:first-child,
 .nav-is-overlay.page-title-4.bg-dark:first-child {
-  height: (@nav-height + 240);
-  padding-top: @nav-height;
+  height: ($nav-height + 240);
+  padding-top: $nav-height;
 }
 
 @media all and (max-width: 767px) {
@@ -2894,7 +2894,7 @@ form iframe.mail-list-form {
 }
 
 .widget .title {
-  .bold-h6;
+  @include bold-h6;
   margin-bottom: 12px;
 }
 
@@ -2908,7 +2908,7 @@ form iframe.mail-list-form {
 
 .recent-posts li {
   margin-bottom: 8px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .recent-posts .date {
@@ -2975,7 +2975,7 @@ form iframe.mail-list-form {
   float: left;
   display: inline-block;
   margin-right: 8px;
-  color: @bg-dark;
+  color: $bg-dark;
   content: "\e74b";
   font-family: 'themify';
   speak: none;
@@ -3036,11 +3036,11 @@ form iframe.mail-list-form {
 }
 
 .cart-overview a {
-  color: @bg-dark;
+  color: $bg-dark;
 }
 
 .cart-overview a:hover {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .widget .flex-direction-nav li a {
@@ -3094,7 +3094,7 @@ img {
 }
 
 .inner-title:before {
-  .transition(.5s);
+  @include transition(.5s);
   content: '';
   position: absolute;
   left: 0;
@@ -3112,7 +3112,7 @@ img {
 }
 
 .inner-title:hover:before {
-  .scale(1.2);
+  @include scale(1.2);
 }
 
 .inner-title .title {
@@ -3120,8 +3120,8 @@ img {
   width: 100%;
   bottom: 24px;
   z-index: 5;
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
 }
 
 .inner-title .title h5 {
@@ -3129,7 +3129,7 @@ img {
 }
 
 .inner-title {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
 }
 
@@ -3143,13 +3143,13 @@ img {
 
 .inner-title.hover-reveal .title {
   opacity: 0;
-  .translateY(50px);
-  .transition(0.3s);
+  @include translateY(50px);
+  @include transition(0.3s);
 }
 
 .inner-title.hover-reveal:hover .title {
   opacity: 1;
-  .translateY(0px);
+  @include translateY(0px);
 }
 
 .inner-title.hover-reveal:hover:before {
@@ -3164,11 +3164,11 @@ img {
 .hover-tile {
   position: relative;
   overflow: hidden;
-  background: @bg-dark;
+  background: $bg-dark;
 }
 
 .hover-tile img {
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .hover-tile:hover img {
@@ -3176,23 +3176,23 @@ img {
 }
 
 .hover-tile .hover-state {
-  .v-align-transform;
+  @include v-align-transform;
   position: absolute;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 0;
   width: 100%;
 }
 
 .hover-state {
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
   z-index: 99;
   padding: 0 40px;
   cursor: default;
 }
 
 .hover-state * {
-  .transition(0.3s);
+  @include transition(0.3s);
   transform: translate3d(0, 30px, 0) scale(1.05);
   -webkit-transform: translate3d(0, 30px, 0) scale(1.05);
 }
@@ -3254,7 +3254,7 @@ img {
 @media all and(max-width: 767px) {
   .image-slider.height-70 .slides li {
     height: auto;
-    min-height: 0;
+    min-height: none;
     padding: 80px 0;
   }
 
@@ -3300,7 +3300,7 @@ img {
 
 .flex-control-nav li a {
   background: none;
-  border: 2px solid @bg-dark;
+  border: 2px solid $bg-dark;
   width: 10px;
   height: 10px;
 }
@@ -3355,7 +3355,7 @@ img {
 }
 
 .logo-carousel li {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .5;
 }
 
@@ -3379,7 +3379,7 @@ img {
 
 .image-bg .text-slider .flex-direction-nav li a:before {
   color: #fff;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .5;
 }
 
@@ -3406,7 +3406,7 @@ img {
   display: inline-block;
   float: left;
   padding: 8px;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
 }
 
@@ -3438,7 +3438,7 @@ img {
   width: 25%;
   float: left;
   border: 8px solid rgba(0, 0, 0, 0);
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
 }
 
@@ -3532,15 +3532,15 @@ img {
 /*!---------- 25. INTROS ----------*/
 
 .cover {
-  .heading-colors(#fff);
-  .text-colors(#fff);
+  @include heading-colors(#fff);
+  @include text-colors(#fff);
   margin: 0;
   padding: 0;
 }
 
 .image-bg.bg-light {
-  .heading-colors(#222);
-  .text-colors(#777);
+  @include heading-colors(#222);
+  @include text-colors(#777);
 }
 
 .cover:first-child .fullscreen {
@@ -3557,7 +3557,7 @@ img {
 }
 
 .cover .flex-control-nav {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .9;
 }
 
@@ -3630,7 +3630,7 @@ img {
 }
 
 .product-single .price:not(.old-price) {
-  color: @color-primary;
+  color: $color-primary;
 }
 
 .add-to-cart input[type="text"] {
@@ -3655,7 +3655,7 @@ th, td {
 
 .ratings li {
   display: inline-block;
-  background: @bg-secondary;
+  background: $bg-secondary;
   padding: 24px;
   margin-bottom: 16px;
 }
@@ -3700,7 +3700,7 @@ th, td {
 
 .product-thumb {
   max-width: 180px;
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
   transform: scale3d(1, 1, 1);
 }
@@ -3741,7 +3741,7 @@ th, td {
   border-radius: 50%;
   text-align: center;
   font-size: 12px;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
 .cart .remove-item:hover {
@@ -3788,7 +3788,7 @@ video {
 }
 
 .local-video-container .background-image-holder {
-  .transition(0.3s);
+  @include transition(0.3s);
   top: 0;
   box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.26);
 }
@@ -3817,7 +3817,7 @@ video {
   margin-left: -40px;
   z-index: 4;
   border-radius: 50%;
-  .transition(0.3s);
+  @include transition(0.3s);
   cursor: pointer;
 }
 
@@ -3841,11 +3841,11 @@ video {
 }
 
 .play-button.dark {
-  border-color: @bg-dark;
+  border-color: $bg-dark;
 }
 
 .play-button.dark:before {
-  border-color: transparent transparent transparent @bg-dark;
+  border-color: transparent transparent transparent $bg-dark;
 }
 
 @media all and (max-width: 767px) {
@@ -3889,7 +3889,7 @@ video {
 }
 
 .play-button.large.dark:before {
-  border-color: transparent transparent transparent @bg-dark;
+  border-color: transparent transparent transparent $bg-dark;
 }
 
 .play-button.inline {
@@ -3930,7 +3930,7 @@ video {
   left: 0;
   z-index: 9999999;
   background: rgba(0, 0, 0, 0.9);
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 0;
   z-index: -1;
 }
@@ -4046,7 +4046,7 @@ video {
 }
 
 .overlay .fs-vid-background:before {
-  .overlay-params(.5, #222);
+  @include overlay-params(.5, #222);
 }
 
 @media all and (max-width: 990px) {
@@ -4161,14 +4161,14 @@ video {
 }
 
 .masonry {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 0;
-  .translateY(100px);
+  @include translateY(100px);
 }
 
 .masonry.fadeIn {
   opacity: 1;
-  .translateY(0);
+  @include translateY(0);
 }
 
 .masonry-item {
@@ -4180,23 +4180,23 @@ video {
 }
 
 .masonry-item blockquote:hover {
-  background: @color-primary;
-  .transition(0.3s);
+  background: $color-primary;
+  @include transition(0.3s);
   color: #fff;
 }
 
 .masonryFlyIn .masonry-item {
   opacity: 0;
-  .translateY(50px);
+  @include translateY(50px);
 }
 
 .masonryFlyIn .masonry-item.fadeIn {
   opacity: 1;
-  .translateY(0);
+  @include translateY(0);
 }
 
 .masonry-loader {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
   position: absolute;
   width: 100%;
@@ -4208,7 +4208,7 @@ video {
   position: fixed;
   top: 50%;
   left: 50%;
-  .translateX(-50%);
+  @include translateX(-50%);
   margin-top: -25px;
 }
 
@@ -4224,36 +4224,36 @@ video {
   height: 50px;
   margin: 0 auto;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 1px 0px @color-primary;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1), 2px 1px 0px $color-primary;
   -moz-animation: spin 0.7s linear infinite;
   -webkit-animation: spin 0.7s linear infinite;
   animation: spin 0.7s linear infinite;
   display: inline-block;
-  .transition(0.3s);
+  @include transition(0.3s);
 }
 
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+$-moz-keyframesspin {
+                 100% {
+                   -moz-transform: rotate(360deg);
+                   transform: rotate(360deg);
+                 }
+               }
 
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+$-webkit-keyframesspin {
+                    100% {
+                      -webkit-transform: rotate(360deg);
+                      transform: rotate(360deg);
+                    }
+                  }
 
-@keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
+$keyframesspin {
+            100% {
+              -moz-transform: rotate(360deg);
+              -ms-transform: rotate(360deg);
+              -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+            }
+          }
 
 @media all and (max-width: 767px) {
   .post-title .label {
@@ -4299,7 +4299,7 @@ video {
 }
 
 .fade-on-hover {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: .5;
 }
 
@@ -4390,7 +4390,7 @@ video {
 .image-square .content {
   padding: 0 10%;
   top: 50%;
-  .translateY(-50%);
+  @include translateY(-50%);
 }
 
 .image-square.left .image {
@@ -4451,17 +4451,17 @@ video {
   float: left;
   margin-right: 32px;
   cursor: pointer;
-  .btn;
-  .btn-sm;
+  @include btn;
+  @include btn-sm;
   border-color: rgba(255, 255, 255, 0);
   opacity: .7;
   border-radius: 25px;
-  .disable-select;
+  @include disable-select;
   display: inline-block;
 }
 
 .filters li.active {
-  border-color: @color-primary;
+  border-color: $color-primary;
   opacity: 1;
 }
 
@@ -4475,9 +4475,9 @@ video {
   top: 16px;
   text-align: center;
   left: 50%;
-  .translateX(-50%);
+  @include translateX(-50%);
   background: rgba(255, 255, 255, 0.98);
-  .transition(0.3s);
+  @include transition(0.3s);
   border-radius: 200px;
 }
 
@@ -4486,11 +4486,11 @@ video {
 }
 
 .bg-dark .filters.floating {
-  .bg-dark;
+  @include bg-dark;
 }
 
 .project {
-  .transition(0.3s);
+  @include transition(0.3s);
   opacity: 1;
   padding: 0;
 }
@@ -4579,7 +4579,7 @@ video {
 .countdown {
   font-size: 80px;
   line-height: 88px;
-  .h1;
+  @include h1;
   font-weight: 100;
   text-transform: uppercase;
 }
@@ -4666,7 +4666,7 @@ video {
 }
 
 .tweets-slider.large p {
-  font-family: @heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $heading-font, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   line-height: 32px;
 }
@@ -4689,7 +4689,7 @@ video {
 }
 
 .sc-background-orange {
-  background: @color-primary !important;
+  background: $color-primary !important;
 }
 
 /*!---------- 35. FOOTERS ----------*/

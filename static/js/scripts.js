@@ -7,7 +7,7 @@ var mr_firstSectionHeight,
     mr_floatingProjectSections,
     mr_scrollTop = 0;
 
-$(document).ready(function() { 
+$(document).ready(function () {
     "use strict";
 
     // Smooth scroll to inner links
@@ -19,13 +19,13 @@ $(document).ready(function() {
 
     // Update scroll variable for scrolling functions
 
-    addEventListener('scroll', function() {
+    addEventListener('scroll', function () {
         mr_scrollTop = window.pageYOffset;
     }, false);
 
     // Append .background-image-holder <img>'s as CSS backgrounds
 
-    $('.background-image-holder').each(function() {
+    $('.background-image-holder').each(function () {
         var imgSrc = $(this).children('img').attr('src');
         $(this).css('background', 'url("' + imgSrc + '")');
         $(this).children('img').hide();
@@ -34,8 +34,8 @@ $(document).ready(function() {
 
     // Fade in background images
 
-    setTimeout(function() {
-        $('.background-image-holder').each(function() {
+    setTimeout(function () {
+        $('.background-image-holder').each(function () {
             $(this).addClass('fadeIn');
         });
     }, 200);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
     // Checkboxes
 
-    $('.checkbox-option').click(function() {
+    $('.checkbox-option').click(function () {
         $(this).toggleClass('checked');
         var checkbox = $(this).find('input');
         if (checkbox.prop('checked') === false) {
@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     // Radio Buttons
 
-    $('.radio-option').click(function() {
+    $('.radio-option').click(function () {
         $(this).closest('form').find('.radio-option').removeClass('checked');
         $(this).addClass('checked');
         $(this).find('input').prop('checked', true);
@@ -67,7 +67,7 @@ $(document).ready(function() {
 
     // Accordions
 
-    $('.accordion li').click(function() {
+    $('.accordion li').click(function () {
         if ($(this).closest('.accordion').hasClass('one-open')) {
             $(this).closest('.accordion').find('li').removeClass('active');
             $(this).addClass('active');
@@ -78,11 +78,11 @@ $(document).ready(function() {
 
     // Tabbed Content
 
-    $('.tabbed-content').each(function() {
+    $('.tabbed-content').each(function () {
         $(this).append('<ul class="content"></ul>');
     });
 
-    $('.tabs li').each(function() {
+    $('.tabs li').each(function () {
         var originalTab = $(this),
             activeClass = "";
         if (originalTab.is('.tabs li:first-child')) {
@@ -92,7 +92,7 @@ $(document).ready(function() {
         originalTab.closest('.tabbed-content').find('.content').append(tabContent);
     });
 
-    $('.tabs li').click(function() {
+    $('.tabs li').click(function () {
         $(this).closest('.tabs').find('li').removeClass('active');
         $(this).addClass('active');
         var liIndex = $(this).index() + 1;
@@ -102,7 +102,7 @@ $(document).ready(function() {
 
     // Progress Bars
 
-    $('.progress-bar').each(function() {
+    $('.progress-bar').each(function () {
         $(this).css('width', $(this).attr('data-progress') + '%');
     });
 
@@ -114,7 +114,7 @@ $(document).ready(function() {
 
         $('.nav-container').css('min-height', $('nav').outerHeight(true));
 
-        $(window).resize(function() {
+        $(window).resize(function () {
             $('.nav-container').css('min-height', $('nav').outerHeight(true));
         });
 
@@ -147,7 +147,7 @@ $(document).ready(function() {
 
     // Menu dropdown positioning
 
-    $('.menu > li > ul').each(function() {
+    $('.menu > li > ul').each(function () {
         var menu = $(this).offset();
         var farRight = menu.left + $(this).outerWidth(true);
         if (farRight > $(window).width() && !$(this).hasClass('mega-menu')) {
@@ -161,12 +161,12 @@ $(document).ready(function() {
 
     // Mobile Menu
 
-    $('.mobile-toggle').click(function() {
+    $('.mobile-toggle').click(function () {
         $('.nav-bar').toggleClass('nav-open');
         $(this).toggleClass('active');
     });
 
-    $('.menu li').click(function(e) {
+    $('.menu li').click(function (e) {
         if (!e) e = window.event;
         e.stopPropagation();
         if ($(this).find('ul').length) {
@@ -176,20 +176,20 @@ $(document).ready(function() {
         }
     });
 
-    $('.module.widget-handle').click(function() {
+    $('.module.widget-handle').click(function () {
         $(this).toggleClass('toggle-widget-handle');
     });
 
     // Populate filters
-    $('.projects').each(function() {
+    $('.projects').each(function () {
 
         var filters = "";
 
-        $(this).find('.project').each(function() {
+        $(this).find('.project').each(function () {
 
             var filterTags = $(this).attr('data-filter').split(',');
 
-            filterTags.forEach(function(tagName) {
+            filterTags.forEach(function (tagName) {
                 if (filters.indexOf(tagName) == -1) {
                     filters += '<li data-filter="' + tagName + '">' + capitaliseFirstLetter(tagName) + '</li>';
                 }
@@ -199,12 +199,12 @@ $(document).ready(function() {
         });
     });
 
-    $('.filters li').click(function() {
+    $('.filters li').click(function () {
         var filter = $(this).attr('data-filter');
         $(this).closest('.filters').find('li').removeClass('active');
         $(this).addClass('active');
 
-        $(this).closest('.projects').find('.project').each(function() {
+        $(this).closest('.projects').find('.project').each(function () {
             var filters = $(this).data('filter');
 
             if (filters.indexOf(filter) == -1) {
@@ -221,9 +221,9 @@ $(document).ready(function() {
 
     // Twitter Feed
 
-    $('.tweets-feed').each(function(index) {
+    $('.tweets-feed').each(function (index) {
         $(this).attr('id', 'tweets-' + index);
-    }).each(function(index) {
+    }).each(function (index) {
 
         function handleTweets(tweets) {
             var x = tweets.length;
@@ -250,7 +250,7 @@ $(document).ready(function() {
         clientID: 'fedaafacf224447e8aef74872d3820a1'
     };
 
-    $('.instafeed').each(function() {
+    $('.instafeed').each(function () {
         $(this).children('ul').spectragram('getUserFeed', {
             query: $(this).attr('data-user-name'),
             max: 12
@@ -259,23 +259,33 @@ $(document).ready(function() {
 
     // Image Sliders
 
-    $('.slider-all-controls').flexslider({});
+    $('.slider-all-controls').flexslider({
+        easing: true,
+        initDelay: 0,
+        animationSpeed: 0,
+        touch: true
+    });
+
     $('.slider-paging-controls').flexslider({
         animation: "slide",
         directionNav: false
     });
+
     $('.slider-arrow-controls').flexslider({
         controlNav: false
     });
-    $('.slider-thumb-controls .slides li').each(function() {
+
+    $('.slider-thumb-controls .slides li').each(function () {
         var imgSrc = $(this).find('img').attr('src');
         $(this).attr('data-thumb', imgSrc);
     });
+
     $('.slider-thumb-controls').flexslider({
         animation: "slide",
         controlNav: "thumbnails",
         directionNav: true
     });
+
     $('.logo-carousel').flexslider({
         minItems: 1,
         maxItems: 4,
@@ -288,24 +298,24 @@ $(document).ready(function() {
         directionNav: false,
         controlNav: false
     });
-    
+
     // Lightbox gallery titles
-    
-    $('.lightbox-grid li a').each(function(){
-    	var galleryTitle = $(this).closest('.lightbox-grid').attr('data-gallery-title');
-    	$(this).attr('data-lightbox', galleryTitle);
+
+    $('.lightbox-grid li a').each(function () {
+        var galleryTitle = $(this).closest('.lightbox-grid').attr('data-gallery-title');
+        $(this).attr('data-lightbox', galleryTitle);
     });
 
 
     // Video Modals
     $('section').closest('body').find('.modal-video[video-link]').remove();
 
-    $('.modal-video-container').each(function(index) {
+    $('.modal-video-container').each(function (index) {
         $(this).find('.play-button').attr('video-link', index);
         $(this).find('.modal-video').clone().appendTo('body').attr('video-link', index);
     });
 
-    $('.modal-video-container .play-button').click(function() {
+    $('.modal-video-container .play-button').click(function () {
         var linkedVideo = $('section').closest('body').find('.modal-video[video-link="' + $(this).attr('video-link') + '"]');
         linkedVideo.toggleClass('reveal-modal');
 
@@ -320,7 +330,7 @@ $(document).ready(function() {
         }
     });
 
-    $('section').closest('body').find('.close-iframe').click(function() {
+    $('section').closest('body').find('.close-iframe').click(function () {
         $(this).closest('.modal-video').toggleClass('reveal-modal');
         $(this).siblings('iframe').attr('src', '');
         $(this).siblings('video').get(0).pause();
@@ -328,7 +338,7 @@ $(document).ready(function() {
 
     // Local Videos
 
-    $('section').closest('body').find('.local-video-container .play-button').click(function() {
+    $('section').closest('body').find('.local-video-container .play-button').click(function () {
         $(this).siblings('.background-image-holder').removeClass('fadeIn');
         $(this).siblings('.background-image-holder').css('z-index', -1);
         $(this).css('opacity', 0);
@@ -337,7 +347,7 @@ $(document).ready(function() {
 
     // Youtube Videos
 
-    $('section').closest('body').find('.player').each(function() {
+    $('section').closest('body').find('.player').each(function () {
         var src = $(this).attr('data-video-id');
         var startat = $(this).attr('data-start-at');
         $(this).attr('data-property', "{videoURL:'http://youtu.be/" + src + "',containment:'self',autoPlay:true, mute:true, startAt:" + startat + ", opacity:1, showControls:false}");
@@ -347,17 +357,17 @@ $(document).ready(function() {
 
     // FS Vid Background
 
-    $(window).resize(function() {
+    $(window).resize(function () {
         resizeVid();
     });
 
     // Interact with Map once the user has clicked (to prevent scrolling the page = zooming the map
 
-    $('.map-holder').click(function() {
+    $('.map-holder').click(function () {
         $(this).addClass('interact');
     });
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         if ($('.map-holder.interact').length) {
             $('.map-holder.interact').removeClass('interact');
         }
@@ -366,9 +376,9 @@ $(document).ready(function() {
     // Countdown Timers
 
     if ($('.countdown').length) {
-        $('.countdown').each(function() {
+        $('.countdown').each(function () {
             var date = $(this).attr('data-date');
-            $(this).countdown(date, function(event) {
+            $(this).countdown(date, function (event) {
                 $(this).text(
                     event.strftime('%D days %H:%M:%S')
                 );
@@ -378,7 +388,7 @@ $(document).ready(function() {
 
     // Contact form code
 
-    $('form.form-email, form.form-newsletter').submit(function(e) {
+    $('form.form-email, form.form-newsletter').submit(function (e) {
 
         // return false so form submits through jQuery rather than reloading page.
         if (e.preventDefault) e.preventDefault();
@@ -430,7 +440,7 @@ $(document).ready(function() {
                 }
             } else {
                 thisForm.find('.form-error').fadeIn(1000);
-                setTimeout(function() {
+                setTimeout(function () {
                     thisForm.find('.form-error').fadeOut(500);
                 }, 5000);
             }
@@ -446,7 +456,7 @@ $(document).ready(function() {
 
             if (error === 1) {
                 $(this).closest('form').find('.form-error').fadeIn(200);
-                setTimeout(function() {
+                setTimeout(function () {
                     $(thisForm).find('.form-error').fadeOut(500);
                 }, 3000);
             } else {
@@ -460,7 +470,7 @@ $(document).ready(function() {
                     type: "POST",
                     url: "mail/mail.php",
                     data: thisForm.serialize(),
-                    success: function(response) {
+                    success: function (response) {
                         // Swiftmailer always sends back a number representing numner of emails sent.
                         // If this is numeric (not Swift Mailer error text) AND greater than 0 then show success message.
                         $(thisForm).find('.form-loading').remove();
@@ -480,7 +490,7 @@ $(document).ready(function() {
                                 thisForm.find('.form-success').fadeIn(1000);
 
                                 thisForm.find('.form-error').fadeOut(1000);
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     thisForm.find('.form-success').fadeOut(500);
                                 }, 5000);
                             }
@@ -494,7 +504,7 @@ $(document).ready(function() {
                             thisForm.find('.form-success').fadeOut(1000);
                         }
                     },
-                    error: function(errorObject, errorText, errorHTTP) {
+                    error: function (errorObject, errorText, errorHTTP) {
                         // Keep the current error text in a data attribute on the form
                         thisForm.find('.form-error').attr('original-error', thisForm.find('.form-error').text());
                         // Show the error with the returned error text.
@@ -509,52 +519,53 @@ $(document).ready(function() {
         return false;
     });
 
-    $('.validate-required, .validate-email').on('blur change', function() {
+    $('.validate-required, .validate-email').on('blur change', function () {
         validateFields($(this).closest('form'));
     });
 
-    $('form').each(function() {
+    $('form').each(function () {
         if ($(this).find('.form-error').length) {
             $(this).attr('original-error', $(this).find('.form-error').text());
         }
     });
 
     function validateFields(form) {
-            var name, error, originalErrorMessage;
+        var name, error, originalErrorMessage;
 
-            $(form).find('.validate-required[type="checkbox"]').each(function() {
-                if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
-                    error = 1;
-                    name = $(this).attr('name').replace('[]', '');
-                    form.find('.form-error').text('Please tick at least one ' + name + ' box.');
-                }
-            });
-
-            $(form).find('.validate-required').each(function() {
-                if ($(this).val() === '') {
-                    $(this).addClass('field-error');
-                    error = 1;
-                } else {
-                    $(this).removeClass('field-error');
-                }
-            });
-
-            $(form).find('.validate-email').each(function() {
-                if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
-                    $(this).addClass('field-error');
-                    error = 1;
-                } else {
-                    $(this).removeClass('field-error');
-                }
-            });
-
-            if (!form.find('.field-error').length) {
-                form.find('.form-error').fadeOut(1000);
+        $(form).find('.validate-required[type="checkbox"]').each(function () {
+            if (!$('[name="' + $(this).attr('name') + '"]:checked').length) {
+                error = 1;
+                name = $(this).attr('name').replace('[]', '');
+                form.find('.form-error').text('Please tick at least one ' + name + ' box.');
             }
+        });
 
-            return error;
+        $(form).find('.validate-required').each(function () {
+            if ($(this).val() === '') {
+                $(this).addClass('field-error');
+                error = 1;
+            } else {
+                $(this).removeClass('field-error');
+            }
+        });
+
+        $(form).find('.validate-email').each(function () {
+            if (!(/(.+)@(.+){2,}\.(.+){2,}/.test($(this).val()))) {
+                $(this).addClass('field-error');
+                error = 1;
+            } else {
+                $(this).removeClass('field-error');
+            }
+        });
+
+        if (!form.find('.field-error').length) {
+            form.find('.form-error').fadeOut(1000);
         }
-        // End contact form code
+
+        return error;
+    }
+
+    // End contact form code
 
     // Get referrer from URL string 
     if (getURLParameter("ref")) {
@@ -571,9 +582,9 @@ $(document).ready(function() {
         $('section').removeClass('parallax');
     }
 
-}); 
+});
 
-$(window).load(function() { 
+$(window).load(function () {
     "use strict";
 
     // Initialize Masonry
@@ -584,7 +595,7 @@ $(window).load(function() {
             itemSelector: '.masonry-item'
         });
 
-        msnry.on('layoutComplete', function() {
+        msnry.on('layoutComplete', function () {
 
             mr_firstSectionHeight = $('.main-container section:nth-of-type(1)').outerHeight(true);
 
@@ -612,7 +623,7 @@ $(window).load(function() {
 
     // Initialize twitter feed
 
-    var setUpTweets = setInterval(function() {
+    var setUpTweets = setInterval(function () {
         if ($('.tweets-slider').find('li.flex-active-slide').length) {
             clearInterval(setUpTweets);
             return;
@@ -629,11 +640,11 @@ $(window).load(function() {
     mr_firstSectionHeight = $('.main-container section:nth-of-type(1)').outerHeight(true);
 
 
-}); 
+});
 
 function resizeVid() {
 
-    $('.fs-vid-background video').each(function() {
+    $('.fs-vid-background video').each(function () {
         var vid = $(this);
         var ratio = (vid.width() / vid.height());
         var section = vid.closest('section');
@@ -655,61 +666,19 @@ function updateNav() {
     var scrollY = mr_scrollTop;
 
     if (scrollY <= 0) {
-        if (mr_navFixed) {
-            mr_navFixed = false;
-            mr_nav.removeClass('fixed');
-        }
-        if (mr_outOfSight) {
-            mr_outOfSight = false;
-            mr_nav.removeClass('outOfSight');
-        }
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-        return;
+        mr_navFixed = false;
+        mr_nav.removeClass('scrolled fixed');
+
+        $('.logo-dark').hide();
+        $('.logo-light').show();
     }
 
-    if (scrollY > mr_firstSectionHeight) {
-        if (!mr_navScrolled) {
-            mr_nav.addClass('scrolled');
-            mr_navScrolled = true;
-            return;
-        }
-    } else {
-        if (scrollY > mr_navOuterHeight) {
-            if (!mr_navFixed) {
-                mr_nav.addClass('fixed');
-                mr_navFixed = true;
-            }
+    else {
+        mr_navFixed = true;
+        mr_nav.addClass('scrolled fixed');
 
-            if (scrollY > mr_navOuterHeight * 2) {
-                if (!mr_outOfSight) {
-                    mr_nav.addClass('outOfSight');
-                    mr_outOfSight = true;
-                }
-            } else {
-                if (mr_outOfSight) {
-                    mr_outOfSight = false;
-                    mr_nav.removeClass('outOfSight');
-                }
-            }
-        } else {
-            if (mr_navFixed) {
-                mr_navFixed = false;
-                mr_nav.removeClass('fixed');
-            }
-            if (mr_outOfSight) {
-                mr_outOfSight = false;
-                mr_nav.removeClass('outOfSight');
-            }
-        }
-
-        if (mr_navScrolled) {
-            mr_navScrolled = false;
-            mr_nav.removeClass('scrolled');
-        }
-
+        $('.logo-light').hide();
+        $('.logo-dark').show();
     }
 }
 
@@ -721,9 +690,9 @@ function masonryFlyIn() {
     var $items = $('.masonryFlyIn .masonry-item');
     var time = 0;
 
-    $items.each(function() {
+    $items.each(function () {
         var item = $(this);
-        setTimeout(function() {
+        setTimeout(function () {
             item.addClass('fadeIn');
         }, time);
         time += 170;
@@ -732,7 +701,7 @@ function masonryFlyIn() {
 
 function setupFloatingProjectFilters() {
     mr_floatingProjectSections = [];
-    $('.filters.floating').closest('section').each(function() {
+    $('.filters.floating').closest('section').each(function () {
         var section = $(this);
 
         mr_floatingProjectSections.push({
