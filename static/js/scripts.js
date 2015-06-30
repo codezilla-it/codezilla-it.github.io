@@ -409,13 +409,9 @@ $(document).ready(function () {
     $('[data-js*="contacts"]').on('click', function (e) {
         e.preventDefault();
 
-        var target = this.hash;
-
         $('html, body').stop().animate({
-            'scrollTop': $(target).offset().top
-        }, 700, 'swing', function () {
-            window.location.hash = target.hash;
-        });
+             'scrollTop': $(this.hash).offset().top
+        }, 900, 'swing');
     });
 
 });
