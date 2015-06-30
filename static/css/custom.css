@@ -163,3 +163,9 @@ nav.transparent.fixed .nav-bar {
     background-color: #46ba00;
     color: #fff;
 }
+
+.fake-snail:before{
+    font-style: normal;
+    display: inline-block;
+    content: "@"
+}
