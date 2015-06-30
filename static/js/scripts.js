@@ -478,6 +478,8 @@ $(window).load(function () {
 
     mr_firstSectionHeight = $('.main-container section:nth-of-type(1)').outerHeight(true);
 
+    // ajax form with formspree
+    // --------------------------
 
     var message_container = $('#success'),
         message_container__alert = $('.success__alert');
