@@ -261,7 +261,7 @@ $(document).ready(function () {
 
     $('.slider-all-controls').flexslider({
         easing: "swing",
-        initDelay: 200,
+        initDelay: 0,
         animation: "fade",
         animationSpeed: 100,
         animationLoop: true,
