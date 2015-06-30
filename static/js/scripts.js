@@ -493,16 +493,14 @@ $(window).load(function () {
             success: function (data) {
                 message_container__alert.addClass("alert-success")
                     .find('.alert__text').text("Il tuo messaggio è stato inviato.");
-                message_container.find('.overlay').show();
             },
-            error: function () {
-                message_container.show();
+            error: function (data) {
                 message_container__alert.addClass("alert-error")
                     .find('.alert__text').text("Ops.. qualcosa è andato storto!");
-                message_container.find('.overlay').show();
             },
-            complete: function () {
+            complete: function (data) {
                 $('#contact-form').trigger("reset");
+                message_container.find('.overlay').show();
                 message_container.removeClass('hide');
             }
         });
