@@ -416,7 +416,9 @@ $(document).ready(function () {
 
     $('[data-js*="mail-decode"]').on('click', function (e) {
         e.stopPropagation();
-        $(this).attr('href', 'mailto:' + atob($(this).attr('href')));
+
+        var target = $(this).attr('href');
+        $(this).attr('href', 'mailto:' + atob(target));
     });
 
 });
