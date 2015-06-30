@@ -410,8 +410,13 @@ $(document).ready(function () {
         e.preventDefault();
 
         $('html, body').stop().animate({
-             'scrollTop': $(this.hash).offset().top
+            'scrollTop': $(this.hash).offset().top
         }, 900, 'swing');
+    });
+
+    $('[data-js*="mail-decode"]').on('click', function (e) {
+        e.stopPropagation();
+        $(this).attr('href', 'mailto:' + atob($(this).attr('href')));
     });
 
 });
