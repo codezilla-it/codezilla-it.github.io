@@ -1,3 +1,7 @@
+/*------------------------------------*\
+    #CUSTOM STYLES
+\*------------------------------------*/
+
 ::-moz-selection {
     background-color: #28ba00;
     color: #fff;
@@ -71,24 +75,24 @@ nav.transparent .module.widget-handle {
 }
 
 .flex-direction-nav a.flex-prev,
-.flex-direction-nav a.flex-next{
+.flex-direction-nav a.flex-next {
     opacity: .5;
 }
 
-.flex-direction-nav a.flex-prev:hover{
+.flex-direction-nav a.flex-prev:hover {
     opacity: 1;
 }
 
-.flex-direction-nav a.flex-next:hover{
+.flex-direction-nav a.flex-next:hover {
     opacity: 1;
 }
 
-.flex-direction-nav a{
+.flex-direction-nav a {
     width: 32px;
     height: 32px;
 }
 
-.flex-direction-nav a.flex-next:before, .flex-direction-nav a.flex-prev:before{
+.flex-direction-nav a.flex-next:before, .flex-direction-nav a.flex-prev:before {
     font-size: 32px;
 }
 
@@ -113,23 +117,23 @@ nav.transparent.fixed .nav-bar {
 
 @media (max-width: 990px) {
 
-    nav.fixed{
+    nav.fixed {
         position: fixed !important;
     }
 
     nav.transparent .nav-bar.nav-open {
-      background-color: #252627;
+        background-color: #252627;
     }
 
     nav.transparent .nav-open .menu > li > a,
     nav.transparent .nav-open .module.widget-handle i,
     nav.transparent .nav-open .nav-utility,
-    .module.widget-handle .title{
+    .module.widget-handle .title {
         color: #eee;
     }
 
     nav.transparent .nav-open .logo-light {
-      display: inline-block;
+        display: inline-block;
     }
 
     .cover.fullscreen .slides li {
@@ -137,14 +141,14 @@ nav.transparent.fixed .nav-bar {
         overflow: hidden;
     }
 
-    .cover.fullscreen .slides li .overlay.image-bg:before{
+    .cover.fullscreen .slides li .overlay.image-bg:before {
         height: 100% !important;
         display: block;
     }
 
 }
 
-.module.widget-handle{
+.module.widget-handle {
     border-top: none;
 }
 
@@ -164,8 +168,57 @@ nav.transparent.fixed .nav-bar {
     color: #fff;
 }
 
-.fake-snail:before{
+.fake-snail:before {
     font-style: normal;
     display: inline-block;
     content: "@"
+}
+
+/* success message */
+#success {
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+}
+
+.success__overlay {
+    position: absolute;
+    z-index: 990;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000;
+    opacity: .65;
+}
+
+.success__alert {
+    position: fixed;
+    z-index: 10000;
+    border-radius: 2px;
+    margin: 0;
+    color: #fff;
+    width: 300px;
+    left: 50%;
+    margin-left: -150px;
+    top: 50%;
+    margin-top: -35px;
+}
+
+.success__alert .close {
+    color: #fff;
+    text-shadow: none;
+}
+
+.success__alert.alert-success {
+    background-color: #28BA00;
+    border-color: #28BA00;
+}
+
+.success__alert.alert-danger {
+    background-color: #ba1e2b;
+    border-color: #ba1e2b;
 }

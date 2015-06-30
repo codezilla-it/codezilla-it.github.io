@@ -29,6 +29,14 @@
 
 {% include header.html %}
 
+<div id="success" class="hide">
+    <div class="success__overlay"></div>
+    <div class="success__alert alert">
+        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+        <strong class="alert__text"></strong>
+    </div>
+</div>
+
 <div class="main-container">
   {{ content }}
 

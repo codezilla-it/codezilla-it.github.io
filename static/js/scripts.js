@@ -479,6 +479,40 @@ $(window).load(function () {
     mr_firstSectionHeight = $('.main-container section:nth-of-type(1)').outerHeight(true);
 
 
+    var message_container = $('#success'),
+        message_container__alert = $('.success__alert');
+
+    $("#contact-form").submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "//formspree.io/hey@codezilla.it",
+            method: "POST",
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function (data) {
+                message_container__alert.addClass("alert-success")
+                    .find('.alert__text').text("Il tuo messaggio è stato inviato.");
+                message_container.find('.overlay').show();
+            },
+            error: function () {
+                message_container.show();
+                message_container__alert.addClass("alert-error")
+                    .find('.alert__text').text("Ops.. qualcosa è andato storto!");
+                message_container.find('.overlay').show();
+            },
+            complete: function () {
+                $('#contact-form').trigger("reset");
+                message_container.removeClass('hide');
+            }
+        });
+    });
+
+    $("#success .close").on('click', function (e) {
+        $('.success__overlay').hide();
+        message_container.addClass('hide');
+    });
+
 });
 
 function resizeVid() {
