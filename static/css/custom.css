@@ -70,6 +70,28 @@ nav.transparent .module.widget-handle {
     color: #31B81F !important;
 }
 
+.flex-direction-nav a.flex-prev,
+.flex-direction-nav a.flex-next{
+    opacity: .5;
+}
+
+.flex-direction-nav a.flex-prev:hover{
+    opacity: 1;
+}
+
+.flex-direction-nav a.flex-next:hover{
+    opacity: 1;
+}
+
+.flex-direction-nav a{
+    width: 32px;
+    height: 32px;
+}
+
+.flex-direction-nav a.flex-next:before, .flex-direction-nav a.flex-prev:before{
+    font-size: 32px;
+}
+
 .overlay:before {
     background-color: #000;
     opacity: .65;

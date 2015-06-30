@@ -260,10 +260,15 @@ $(document).ready(function () {
     // Image Sliders
 
     $('.slider-all-controls').flexslider({
-        easing: true,
-        initDelay: 0,
-        animationSpeed: 0,
-        touch: true
+        easing: "swing",
+        initDelay: 200,
+        animation: "fade",
+        animationSpeed: 100,
+        animationLoop: true,
+        slideshow: true,
+        slideshowSpeed: 4000,
+        touch: true,
+        useCSS: true
     });
 
     $('.slider-paging-controls').flexslider({
