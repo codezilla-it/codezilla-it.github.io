@@ -152,3 +152,14 @@ nav.transparent.fixed .nav-bar {
 .image-slider .slides {
     background-color: black;
 }
+
+.image-slider .btn.btn--green {
+    color: #fff;
+    border-color: #28BA00;
+    background-color: #28BA00;
+}
+
+.image-slider .btn.btn--green:hover {
+    background-color: #46ba00;
+    color: #fff;
+}
