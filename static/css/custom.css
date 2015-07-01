@@ -17,6 +17,10 @@
     font-weight: 200 !important;
 }
 
+a:active, a:focus{
+    color: #FF8F24;
+}
+
 body {
     overflow-x: hidden;
 }
@@ -170,7 +174,7 @@ nav.transparent.fixed .nav-bar {
 
 .fake-snail:before {
     font-style: normal;
-    display: inline-block;
+    display: inline;
     content: "@"
 }
 
