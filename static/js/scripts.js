@@ -481,10 +481,10 @@ $(window).load(function () {
     // ajax form with formspree
     // --------------------------
 
-    var success = $('#success'),
-        success__alert = success.find('.success__alert'),
-        success__alert__text = success__alert.find('.success__text'),
-        success__overlay = success.find('.success__overlay');
+    var message = $('.message'),
+        message__alert = message.find('.message__alert'),
+        message__alert__text = message__alert.find('.message__alert__text'),
+        message__overlay = message.find('.message__overlay');
 
     $("#contact-form").submit(function (e) {
 
@@ -496,28 +496,30 @@ $(window).load(function () {
             data: $(this).serialize(),
             dataType: "json",
             success: function (data) {
-                success__alert__text.text("Il tuo messaggio è stato inviato.");
+                message__alert.addClass('alert-success');
+                message__alert__text.text("Il tuo messaggio è stato inviato.");
             },
             error: function (jqXHR, textStatus, errorThrown) {
-                success__alert__text.text("Ops.. qualcosa è andato storto!");
+                message__alert.addClass('alert-danger');
+                message__alert__text.text("Ops.. qualcosa è andato storto!");
 
                 if (textStatus === "timeout") {
-                    success__alert__text.text("Server timeout.. Houston abbiamo un problema!")
+                    message__alert__text.text("Server timeout.. Houston abbiamo un problema!")
                 }
             },
             complete: function () {
+                message__overlay.show();
+                message.removeClass('hide');
                 $('#contact-form').trigger("reset");
-                success__overlay.show();
-                success.removeClass('hide');
             }
         });
     });
 
-    success.on('click', '.close', function (e) {
+    message.on('click', '.close', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        success.addClass('hide');
-        success__overlay.hide();
+        message.addClass('hide');
+        message__overlay.hide();
     });
 
 });

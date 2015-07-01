@@ -175,7 +175,7 @@ nav.transparent.fixed .nav-bar {
 }
 
 /* success message */
-#success {
+.message {
     position: fixed;
     z-index: 10000;
     width: 100%;
@@ -185,7 +185,7 @@ nav.transparent.fixed .nav-bar {
     left: 0;
 }
 
-.success__overlay {
+.message__overlay {
     position: absolute;
     z-index: 990;
     width: 100%;
@@ -195,46 +195,50 @@ nav.transparent.fixed .nav-bar {
     opacity: .65;
 }
 
-.success__alert {
+.message__alert {
     position: fixed;
     z-index: 10000;
     border-radius: 2px;
     margin: 0;
     color: #fff;
-    width: 300px;
+    min-width: 300px;
     left: 50%;
     margin-left: -150px;
     top: 50%;
     margin-top: -35px;
+    font-size: 20px;
+    line-height: 1.4em;
+    text-align: center;
+    max-width: 350px;
 }
 
-.success__alert .close {
+.message__alert .close {
     color: #fff;
     text-shadow: none;
 }
 
-.success__alert.alert-success {
+.message__alert.alert-success {
     background-color: #28BA00;
     border-color: #28BA00;
 }
 
-.success__alert.alert-danger {
+.message__alert.alert-danger {
     background-color: #ba1e2b;
     border-color: #ba1e2b;
 }
 
 /* input type email */
 input[type="email"] {
-  background: #f5f5f5;
-  border: none;
-  width: 100%;
-  height: 50px;
-  padding-left: 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  border-radius: 0;
+    background: #f5f5f5;
+    border: none;
+    width: 100%;
+    height: 50px;
+    padding-left: 20px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    border-radius: 0;
 }
 
-input[type="email"]:focus{
+input[type="email"]:focus {
     outline: 1px solid #ccc;
 }
