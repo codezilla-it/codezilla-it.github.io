@@ -487,6 +487,8 @@ $(window).load(function () {
 
     $("#contact-form").submit(function (e) {
 
+        e.preventDefault();
+
         $.ajax({
             url: "//formspree.io/hey@codezilla.it",
             method: "POST",
