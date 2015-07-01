@@ -481,9 +481,10 @@ $(window).load(function () {
     // ajax form with formspree
     // --------------------------
 
-    var success = $('#success');
-    var success__alert = success.find('.success__alert');
-    var success__overlay = success.find('.success__overlay');
+    var success = $('#success'),
+        success__alert = success.find('.success__alert'),
+        success__alert__text = success__alert.find('.success__text'),
+        success__overlay = success.find('.success__overlay');
 
     $("#contact-form").submit(function (e) {
 
@@ -495,14 +496,16 @@ $(window).load(function () {
             data: $(this).serialize(),
             dataType: "json",
             success: function (data) {
-                success__alert.addClass("alert-success")
-                    .find('.alert__text').text("Il tuo messaggio è stato inviato.");
+                success__alert__text.text("Il tuo messaggio è stato inviato.");
             },
-            error: function (data) {
-                success__alert.addClass("alert-danger")
-                    .find('.alert__text').text("Ops.. qualcosa è andato storto!");
+            error: function (jqXHR, textStatus, errorThrown) {
+                success__alert__text.text("Ops.. qualcosa è andato storto!");
+
+                if (textStatus === "timeout") {
+                    success__alert__text.text("Server timeout.. Houston abbiamo un problema!")
+                }
             },
-            complete: function (data) {
+            complete: function () {
                 $('#contact-form').trigger("reset");
                 success__overlay.show();
                 success.removeClass('hide');
