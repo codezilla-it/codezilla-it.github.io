@@ -2,27 +2,27 @@
 <html lang="it">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt|strip_html|strip_newlines|truncate: 160 }}
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt|strip_html|strip_newlines|truncate: 160 }}
   {% else %}{{ site.description }}{% endif %}">
 
-  <link rel="canonical" href="{{ page.url|replace:'index.html',''|prepend:site.baseurl|prepend:site.url }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.static_path }}/favicon.png">
+    <link rel="canonical" href="{{ page.url|replace:'index.html',''|prepend:site.baseurl|prepend:site.url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.static_path }}/favicon.png">
 
-  <link href="{{ site.static_path }}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/themify-icons.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/flexslider.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/ytplayer.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href="{{ site.static_path }}/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
-  <link href='//fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600'
-        rel='stylesheet' type='text/css'>
+    <link href="{{ site.static_path }}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/themify-icons.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/flexslider.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/ytplayer.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ site.static_path }}/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href='//fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600'
+          rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -30,18 +30,18 @@
 {% include header.html %}
 
 <div id="success" class="hide">
-    <div class="success__overlay"></div>
-    <div class="success__alert alert">
+    <div class='success__overlay'></div>
+    <div class='success__alert alert'>
         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
-        <strong class="alert__text"></strong>
+        <strong class='alert__text'></strong>
     </div>
 </div>
 
 <div class="main-container">
-  {{ content }}
+    {{ content }}
 
-  {% include pre_footer.html %}
-  {% include footer.html %}
+    {% include pre_footer.html %}
+    {% include footer.html %}
 </div>
 
 <script src="{{ site.static_path }}/js/jquery.min.js"></script>

@@ -481,11 +481,11 @@ $(window).load(function () {
     // ajax form with formspree
     // --------------------------
 
-    var message_container = $('#success'),
-        message_container__alert = $('.success__alert');
+    var success = $('#success');
+    var success__alert = success.find('.success__alert');
+    var success__overlay = success.find('.success__overlay');
 
     $("#contact-form").submit(function (e) {
-        e.preventDefault();
 
         $.ajax({
             url: "//formspree.io/hey@codezilla.it",
@@ -493,24 +493,26 @@ $(window).load(function () {
             data: $(this).serialize(),
             dataType: "json",
             success: function (data) {
-                message_container__alert.addClass("alert-success")
+                success__alert.addClass("alert-success")
                     .find('.alert__text').text("Il tuo messaggio è stato inviato.");
             },
             error: function (data) {
-                message_container__alert.addClass("alert-error")
+                success__alert.addClass("alert-danger")
                     .find('.alert__text').text("Ops.. qualcosa è andato storto!");
             },
             complete: function (data) {
                 $('#contact-form').trigger("reset");
-                message_container.find('.overlay').show();
-                message_container.removeClass('hide');
+                success__overlay.show();
+                success.removeClass('hide');
             }
         });
     });
 
-    $("#success .close").on('click', function (e) {
-        $('.success__overlay').hide();
-        message_container.addClass('hide');
+    success.on('click', '.close', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        success.addClass('hide');
+        success__overlay.hide();
     });
 
 });
