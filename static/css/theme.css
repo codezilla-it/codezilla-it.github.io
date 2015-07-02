@@ -745,14 +745,14 @@ footer.bg-dark li,
 .btn-white,
 .image-bg .btn,
 .image-bg .btn:visited {
-  color: #fff;
-  border-color: #fff;
+  color: #31B81F;
+  border-color: #31B81F;
 }
 .btn-white:hover,
 .image-bg .btn:hover,
 .image-bg .btn:visited:hover {
-  background: #fff;
-  color: #222;
+  background: #31B81F;
+  color: #FFF;
 }
 .image-bg .btn.btn-filled,
 .image-bg .btn-filled:visited {

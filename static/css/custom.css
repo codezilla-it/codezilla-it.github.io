@@ -246,3 +246,8 @@ input[type="email"] {
 input[type="email"]:focus {
     outline: 1px solid #ccc;
 }
+
+input[type="submit"], .btn-lg {
+  font-size: 15px;
+  letter-spacing: 2px;
+}

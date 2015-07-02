@@ -4,7 +4,8 @@
             <div class="col-sm-12 col-md-5">
                 <h4 class="uppercase">Informazioni e Preventivi</h4>
                 <p>
-                    Utilizza il form per chiedere un preventivo, oppure chiamaci per avere maggiori informazioni sui
+                    Utilizza il il modulo contatti per chiedere un preventivo, oppure chiamaci per avere maggiori
+                    informazioni sui
                     nostri servizi.
                 </p>
                 <hr>
@@ -27,21 +28,32 @@
             </div>
             <div class="col-sm-12 col-md-6 col-md-offset-1">
                 <form id="contact-form" class="form-email">
+
                     <div class="row">
-                        <div class="col-sm-6 col-xs-12">
-                            <input type="text" required name="name" placeholder="Nome">
-                        </div>
-                        <div class="col-sm-6 col-xs-12">
-                            <input type="text" required name="surname" placeholder="Cognome">
+                        <div class="col-xs-12">
+                            <input type="text" required name="name" placeholder="Nome e Cognome">
                         </div>
                     </div>
 
-                    <input type="email" required name="email" placeholder="Il tuo indirizzo e-mail">
-                    <textarea required name="message" rows="4" placeholder="Messaggio"></textarea>
-                    <input type="submit" value="Invia">
+                    <div class="row">
+                        <div class="col-sm-6 col-xs-12">
+                            <input type="email" required name="email" placeholder="Il tuo indirizzo e-mail">
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <input type="text" required name="phone" placeholder="Telefono">
+                        </div>
+                    </div>
 
-                    <!--<input type="hidden" name="_next" value="//codezilla.it">-->
-                    <input type="text" name="_gotcha" class="hide">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <textarea required name="message" rows="4" placeholder="Messaggio"></textarea>
+                            <input type="submit" value="Invia">
+
+                            <!--<input type="hidden" name="_next" value="//codezilla.it">-->
+                            <input type="text" name="_gotcha" class="hide">
+                        </div>
+                    </div>
+
                 </form>
             </div>
         </div>
