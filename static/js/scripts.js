@@ -406,6 +406,12 @@ $(document).ready(function () {
         $('section').removeClass('parallax');
     }
 
+    //function goto_hash(element, id) {
+    //    $('html, body').stop().animate({
+    //        'scrollTop': $(this.hash).offset().top
+    //    }, 900, 'swing');
+    //}
+
     $('[data-js*="contacts"]').on('click', function (e) {
         e.preventDefault();
 
@@ -506,7 +512,7 @@ $(window).load(function () {
                 if (textStatus === "timeout") {
                     message__alert__text.text("Server timeout.. Houston abbiamo un problema!")
                 }
-                else{
+                else {
                     message__alert__text.text("Ops.. qualcosa è andato storto!");
                 }
             },
