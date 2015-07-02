@@ -409,6 +409,7 @@ $(document).ready(function () {
     // goto_hash links
 
     function goto_hash(id) {
+
         $('html, body').stop().animate({
             'scrollTop': $(id.hash).offset().top - $('.nav-bar').height()
         }, 900, 'swing');
