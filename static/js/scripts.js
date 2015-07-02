@@ -406,18 +406,17 @@ $(document).ready(function () {
         $('section').removeClass('parallax');
     }
 
-    //function goto_hash(element, id) {
-    //    $('html, body').stop().animate({
-    //        'scrollTop': $(this.hash).offset().top
-    //    }, 900, 'swing');
-    //}
+    // goto_hash links
 
-    $('[data-js*="contacts"]').on('click', function (e) {
-        e.preventDefault();
-
+    function goto_hash(id) {
         $('html, body').stop().animate({
-            'scrollTop': $(this.hash).offset().top
+            'scrollTop': $(id.hash).offset().top - $('.nav-bar').height()
         }, 900, 'swing');
+    }
+
+    $('[data-js*="contacts"], .nav-anchor').on('click', function (e) {
+        e.preventDefault();
+        goto_hash(this);
     });
 
     $('[data-js*="mail-decode"]').on('click', function (e) {
