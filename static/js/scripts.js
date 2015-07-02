@@ -491,26 +491,28 @@ $(window).load(function () {
         e.preventDefault();
 
         $.ajax({
-            url: "//formspree.io/hey@codezilla.it",
+            url: "//formspree.io/" + atob("aGV5QGNvZGV6aWxsYS5pdA=="),
             method: "POST",
             data: $(this).serialize(),
             dataType: "json",
             success: function (data) {
                 message__alert.addClass('alert-success');
                 message__alert__text.text("Il tuo messaggio è stato inviato.");
+                $('#contact-form').trigger("reset");
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 message__alert.addClass('alert-danger');
-                message__alert__text.text("Ops.. qualcosa è andato storto!");
 
                 if (textStatus === "timeout") {
                     message__alert__text.text("Server timeout.. Houston abbiamo un problema!")
+                }
+                else{
+                    message__alert__text.text("Ops.. qualcosa è andato storto!");
                 }
             },
             complete: function () {
                 message__overlay.show();
                 message.removeClass('hide');
-                $('#contact-form').trigger("reset");
             }
         });
     });
