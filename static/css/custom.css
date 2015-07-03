@@ -257,3 +257,7 @@ input[type="submit"], .btn-lg {
     margin-bottom: 45px;
     line-height: 1.6em;
 }
+
+.tweet img{
+    max-width: 12px !important;
+}
