@@ -261,3 +261,7 @@ input[type="submit"], .btn-lg {
 .tweet img{
     max-width: 12px !important;
 }
+
+#chi-siamo{
+    padding-bottom: 50px;
+}
