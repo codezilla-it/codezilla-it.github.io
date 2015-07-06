@@ -17,6 +17,14 @@
     font-weight: 200 !important;
 }
 
+.text-normal{
+    font-weight: 300 !important;
+}
+
+.text-bold{
+    font-weight: 500 !important;
+}
+
 a:active, a:focus{
     color: #FF8F24;
 }
