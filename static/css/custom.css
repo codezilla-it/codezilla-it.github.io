@@ -273,3 +273,7 @@ input[type="submit"], .btn-lg {
 #chi-siamo{
     padding-bottom: 50px;
 }
+
+section, footer {
+  padding: 48px 0;
+}
