@@ -17,15 +17,15 @@
     font-weight: 200 !important;
 }
 
-.text-normal{
+.text-normal {
     font-weight: 300 !important;
 }
 
-.text-bold{
+.text-bold {
     font-weight: 500 !important;
 }
 
-a:active, a:focus{
+a:active, a:focus {
     color: #FF8F24;
 }
 
@@ -256,24 +256,47 @@ input[type="email"]:focus {
 }
 
 input[type="submit"], .btn-lg {
-  font-size: 15px;
-  letter-spacing: 2px;
+    font-size: 15px;
+    letter-spacing: 2px;
 }
 
-.tab-content p{
+.tab-content p {
     font-size: 16px;
     margin-bottom: 45px;
     line-height: 1.6em;
 }
 
-.tweet img{
+.tweet img {
     max-width: 12px !important;
 }
 
-#chi-siamo{
-    padding-bottom: 50px;
+#chi-siamo {
+    padding: 25px 0;
 }
 
 section, footer {
-  padding: 48px 0;
+    padding: 48px 0;
+}
+
+@media (max-width: 1200px) {
+    #chi-siamo {
+        padding: 70px 0;
+    }
+
+    .v-align-transform h2 {
+        font-size: 30px;
+        margin-bottom: 5px;
+    }
+
+    .v-align-transform .lead {
+        font-size: 14px;
+    }
+
+    .v-align-transform .lead p {
+        margin-bottom: 5px;
+    }
+}
+
+.pd-96-0 {
+    padding: 96px 0;
 }
