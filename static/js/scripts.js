@@ -505,6 +505,7 @@ $(window).load(function () {
                 message__alert.addClass('alert-success');
                 message__alert__text.text("Il tuo messaggio è stato inviato.");
                 $('#contact-form').trigger("reset");
+                window._fbq.push(['track', '6028078241944', {'value':'0.01','currency':'EUR'}]);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 message__alert.addClass('alert-danger');
