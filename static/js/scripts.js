@@ -266,7 +266,7 @@ $(document).ready(function () {
         animationSpeed: 400,
         animationLoop: true,
         slideshow: true,
-        slideshowSpeed: 4000,
+        slideshowSpeed: 5500,
         touch: true,
         useCSS: true
     });
