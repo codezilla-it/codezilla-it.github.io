@@ -300,3 +300,27 @@ section, footer {
 .pd-96-0 {
     padding: 96px 0;
 }
+
+.projects {
+    padding-top: 50px;
+}
+
+.filters.floating {
+    top: -50px !important;
+}
+
+@media (max-width: 992px) {
+
+    #portfolio{
+        padding-top: 20px;
+    }
+
+    .projects {
+        padding-top: 75px;
+    }
+
+    .filters.floating {
+        top: -75px !important;
+    }
+}
+

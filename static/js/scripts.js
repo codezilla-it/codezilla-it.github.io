@@ -194,7 +194,7 @@ $(document).ready(function () {
                 }
             });
             $(this).closest('.projects')
-                .find('ul.filters').empty().append('<li data-filter="all" class="active">All</li>').append(filters);
+                .find('ul.filters').empty().append('<li data-filter="all" class="active">Tutti</li>').append(filters);
         });
     });
 
