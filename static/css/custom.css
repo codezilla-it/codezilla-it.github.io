@@ -316,7 +316,7 @@ section, footer {
     }
 
     .projects {
-        padding-top: 75px;
+        padding-top: 75px !important;
     }
 
     .filters.floating {
