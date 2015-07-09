@@ -2,26 +2,41 @@
 <html lang="it">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt|strip_html|strip_newlines|truncate: 160 }}
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt|strip_html|strip_newlines|truncate: 160 }}
   {% else %}{{ site.description }}{% endif %}">
 
-    <link rel="canonical" href="{{ page.url|replace:'index.html',''|prepend:site.baseurl|prepend:site.url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ site.static_path }}/favicon.png">
+  <link rel="canonical" href="{{ page.url|replace:'index.html',''|prepend:site.baseurl|prepend:site.url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.static_path }}/favicon.png">
 
-    <link href="{{ site.static_path }}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/themify-icons.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/flexslider.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/ytplayer.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{ site.static_path }}/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href='http://fonts.googleapis.com/css?family=Montserrat%7CRaleway:100,300,400,500,600%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+  <link href="{{ site.static_path }}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/themify-icons.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/flexslider.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/lightbox.min.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/ytplayer.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href="{{ site.static_path }}/css/custom.css" rel="stylesheet" type="text/css" media="all"/>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat%7CRaleway:100,300,400,500,600%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+
+  <!-- Facebook Conversion Code for acquisizione lead codezilla.it -->
+  <script>(function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+    }
+  })();
+  window._fbq = window._fbq || [];
+  </script>
 </head>
 
 <body>
@@ -29,18 +44,18 @@
 {% include header.html %}
 
 <div class="message hide">
-    <div class='message__overlay'></div>
-    <div class='message__alert alert'>
-        <button class='close' type='button' data-dismiss='alert' aria-hidden='true'>&times;</button>
-        <strong class='message__alert__text'></strong>
-    </div>
+  <div class='message__overlay'></div>
+  <div class='message__alert alert'>
+    <button class='close' type='button' data-dismiss='alert' aria-hidden='true'>&times;</button>
+    <strong class='message__alert__text'></strong>
+  </div>
 </div>
 
 <div class="main-container">
-    {{ content }}
+  {{ content }}
 
-    {% include contacts.html %}
-    {% include footer.html %}
+  {% include contacts.html %}
+  {% include footer.html %}
 </div>
 
 <script src="{{ site.static_path }}/js/jquery.min.js"></script>
