@@ -109,8 +109,8 @@ nav.transparent .module.widget-handle {
 }
 
 .overlay:before {
-    background-color: #000;
-    opacity: .65;
+    background-color: black;
+    opacity: .6;
 }
 
 .btn.btn--green {
